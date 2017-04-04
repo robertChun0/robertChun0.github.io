@@ -10,16 +10,16 @@
 
     
     <entry>
-      <title></title>
+      <title><![CDATA[新增标题]]></title>
       <url>%2F2017%2F04%2F04%2Ftest2%2F</url>
-      <content type="text"><![CDATA[修改一下hello , this is new content .11 哈哈啊哈哈啊123456789101112131415public class HelloWorld&#123; //程序的主函数入门 public static void main(String args[]) &#123; //输出打印字符语句 System.out.println("HelloWorld！"); &#125;&#125;]]></content>
+      <content type="text"><![CDATA[修改一下hello , this is new content .11 哈哈啊哈哈啊 123456789101112131415public class HelloWorld&#123; //程序的主函数入门 public static void main(String args[]) &#123; //输出打印字符语句 System.out.println("HelloWorld！"); &#125;&#125;]]></content>
     </entry>
 
     
     <entry>
       <title><![CDATA[test]]></title>
       <url>%2F2017%2F04%2F04%2Ftest%2F</url>
-      <content type="text"><![CDATA[测试发布文章]]></content>
+      <content type="text"><![CDATA[测试发布文章1.测试12.测试23.测试34.测试45.测试5]]></content>
     </entry>
 
     
