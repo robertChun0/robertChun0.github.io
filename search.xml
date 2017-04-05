@@ -3,23 +3,16 @@
   
     
     <entry>
-      <title><![CDATA[1]]></title>
-      <url>%2F2017%2F04%2F04%2F1%2F</url>
-      <content type="text"><![CDATA[啊啊啊~]]></content>
+      <title><![CDATA[JSON]]></title>
+      <url>%2F2017%2F04%2F05%2FJSON%2F</url>
+      <content type="text"><![CDATA[获取JSON数据(如OkHttp)1String jsonData = response.body().string; 使用JSONObject解析JSON1234567JSONArray jsonArray = new JSONArray(jsonData); for(int i = 0;i &lt; jsonArray.Length();i++)&#123; JSONObject jsonObject = jsonArray.getJSONObject(i); String xx = jsonObject.getString(“xx”); String yy = jsonObject.getString(“yy”);&#125; 使用Google官方出品的Gson库来解析12345678910111213//创建一个Person类Gson gson = new Gson();//一段JSON数据Person person = gson.fromJson(jsonData,Person.class);//一段JSON数组,则需要借助TypeToken将期望解析成的数据类型传入到fromJson()中List&lt;Person&gt; personList = gson.fromJson(jsonData,new TypeToken&lt;List&lt;Person&gt;&gt;()&#123;&#125;.getType());for(Person person:personList)&#123; String xx = person.getXx(); String yy = person.getYy(); ... &#125;]]></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[新增标题]]></title>
-      <url>%2F2017%2F04%2F04%2Ftest2%2F</url>
-      <content type="text"><![CDATA[修改一下hello , this is new content .11 哈哈啊哈哈啊 123456789101112131415public class HelloWorld&#123; //程序的主函数入门 public static void main(String args[]) &#123; //输出打印字符语句 System.out.println("HelloWorld！"); &#125;&#125;]]></content>
-    </entry>
-
-    
-    <entry>
-      <title><![CDATA[test]]></title>
-      <url>%2F2017%2F04%2F04%2Ftest%2F</url>
-      <content type="text"><![CDATA[测试发布文章1.测试12.测试23.测试34.测试45.测试5]]></content>
+      <title><![CDATA[okhttp]]></title>
+      <url>%2F2017%2F04%2F05%2Fokhttp%2F</url>
+      <content type="text"><![CDATA[官方介绍 Github 创建okhttp实例1OkHttpClient client = new OkHttpClient(); 构建request1234//getRequest request = new Request.Builder() .url(“xxxxx”) .build(); 12345678910//postRequestBody requestBody = new FormBody.Builder() .add(“key1”,”value1”) .add(“key2”,”value2”) .build();Request request = new Request.Builder() .url(“xxxxx”) .post(requestBody) .build(); 获取服务器返回的数据1234//同步Response response = client.newCall(request).execute();//服务器返回的数据:String responseData = response.body().string(); 123//异步client.newCall(request).enqueue(callback);//enqueue内部开启了子线程,重写OnResponse/OnFailure回调 最终的回调接口都在子线程中运行的,不能进行任何的UI操作借助runOnUiThread()方法进行线程的切换]]></content>
     </entry>
 
     
