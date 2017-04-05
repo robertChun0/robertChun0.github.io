@@ -87,15 +87,17 @@
 
 
 
-<meta name="description" content="喜欢听轻音乐zzz睡懒觉">
-<meta property="og:type" content="website">
-<meta property="og:title" content="robertChun">
-<meta property="og:url" content="https://robertchun0.github.io/index.html">
+<meta name="description" content="添加依赖compile &amp;#39;com.android.support:recyclerview-vxxxxx 准备数据源List&amp;lt;Object&amp;gt; datas 设置数据适配器 创建一个类继承RecyclerView.Adapter&amp;lt;VH&amp;gt;  构造函数中获取数据源  一个内部类继承RecyclerView.ViewHolder  构造函数获取传来的view中的组件  onC">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RecyclerView">
+<meta property="og:url" content="https://robertchun0.github.io/2017/04/05/RecyclerView/index.html">
 <meta property="og:site_name" content="robertChun">
-<meta property="og:description" content="喜欢听轻音乐zzz睡懒觉">
+<meta property="og:description" content="添加依赖compile &amp;#39;com.android.support:recyclerview-vxxxxx 准备数据源List&amp;lt;Object&amp;gt; datas 设置数据适配器 创建一个类继承RecyclerView.Adapter&amp;lt;VH&amp;gt;  构造函数中获取数据源  一个内部类继承RecyclerView.ViewHolder  构造函数获取传来的view中的组件  onC">
+<meta property="og:updated_time" content="2017-04-05T13:32:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="robertChun">
-<meta name="twitter:description" content="喜欢听轻音乐zzz睡懒觉">
+<meta name="twitter:title" content="RecyclerView">
+<meta name="twitter:description" content="添加依赖compile &amp;#39;com.android.support:recyclerview-vxxxxx 准备数据源List&amp;lt;Object&amp;gt; datas 设置数据适配器 创建一个类继承RecyclerView.Adapter&amp;lt;VH&amp;gt;  构造函数中获取数据源  一个内部类继承RecyclerView.ViewHolder  构造函数获取传来的view中的组件  onC">
 
 
 
@@ -123,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="https://robertchun0.github.io/"/>
+  <link rel="canonical" href="https://robertchun0.github.io/2017/04/05/RecyclerView/"/>
 
 
 
 
 
-  <title> robertChun </title>
+  <title> RecyclerView | robertChun </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -154,9 +156,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -293,9 +293,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -325,10 +325,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/04/05/RecyclerView/" itemprop="url">
-                  RecyclerView
-                </a>
+                RecyclerView
               
             
           </h1>
@@ -390,8 +387,7 @@
       
 
       
-        
-          <h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h3><p><code>compile &#39;com.android.support:recyclerview-vxxxxx</code></p>
+        <h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h3><p><code>compile &#39;com.android.support:recyclerview-vxxxxx</code></p>
 <h3 id="准备数据源"><a href="#准备数据源" class="headerlink" title="准备数据源"></a>准备数据源</h3><p><code>List&lt;Object&gt; datas</code></p>
 <h3 id="设置数据适配器"><a href="#设置数据适配器" class="headerlink" title="设置数据适配器"></a>设置数据适配器</h3><ul>
 <li><p>创建一个类继承<code>RecyclerView.Adapter&lt;VH&gt;</code><br>  构造函数中获取数据源</p>
@@ -399,26 +395,42 @@
 <li><p>一个内部类继承<code>RecyclerView.ViewHolder</code><br>  构造函数获取传来的view中的组件</p>
 </li>
 <li><p><code>onCreateViewHolder</code>方法中设置一个带布局的View并作为新的holder返回</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/05/RecyclerView/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<a id="more"></a>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item,<span class="keyword">null</span>);</div><div class="line"><span class="keyword">return</span> <span class="keyword">new</span> myHolder(view);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><code>onBindViewHolder</code>方法中设置holder中的组件内容</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">holder.textView.setText(mdata.get(position));</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><code>getItemCount</code>方法返回数据源的大小</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> data.size();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="给recyclerView设置适配器"><a href="#给recyclerView设置适配器" class="headerlink" title="给recyclerView设置适配器"></a>给recyclerView设置适配器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">recyclerView.setAdapter(<span class="keyword">new</span> myAdapter(datas));</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
@@ -426,476 +438,38 @@
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://robertchun0.github.io/2017/04/05/JSON/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="robertChun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="robertChun">
-    </span>
-
-    
-      <header class="post-header">
-
         
-        
-          <h1 class="post-title" itemprop="name headline">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-              
-                
-                <a class="post-title-link" href="/2017/04/05/JSON/" itemprop="url">
-                  JSON
-                </a>
-              
+              <a href="/2017/04/05/JSON/" rel="prev" title="JSON">
+                JSON <i class="fa fa-chevron-right"></i>
+              </a>
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-05T20:00:15+08:00">
-                2017-04-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/05/JSON/" class="leancloud_visitors" data-flag-title="JSON">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h3 id="获取JSON数据-如OkHttp"><a href="#获取JSON数据-如OkHttp" class="headerlink" title="获取JSON数据(如OkHttp)"></a>获取JSON数据(如OkHttp)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String jsonData = response.body().string;</div></pre></td></tr></table></figure>
-<h3 id="使用JSONObject解析JSON"><a href="#使用JSONObject解析JSON" class="headerlink" title="使用JSONObject解析JSON"></a>使用JSONObject解析JSON</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">JSONArray jsonArray = <span class="keyword">new</span> JSONArray(jsonData);</div><div class="line">	</div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; jsonArray.Length();i++)&#123;</div><div class="line">	JSONObject jsonObject = jsonArray.getJSONObject(i);</div><div class="line">	String xx = jsonObject.getString(“xx”);</div><div class="line">	String yy = jsonObject.getString(“yy”);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/05/JSON/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://robertchun0.github.io/2017/04/05/okhttp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="robertChun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="robertChun">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/05/okhttp/" itemprop="url">
-                  okhttp
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-05T19:26:25+08:00">
-                2017-04-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/05/okhttp/" class="leancloud_visitors" data-flag-title="okhttp">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://square.github.io/okhttp/">官方介绍</a>  </p>
-<p><a href="https://github.com/square/okhttp">Github</a></p>
-<h3 id="创建okhttp实例"><a href="#创建okhttp实例" class="headerlink" title="创建okhttp实例"></a>创建okhttp实例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">OkHttpClient client = <span class="keyword">new</span> OkHttpClient();</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/05/okhttp/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://robertchun0.github.io/2017/04/04/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="robertChun">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="robertChun">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/04/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-04T11:24:34+08:00">
-                2017-04-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/04/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/04/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -903,6 +477,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -922,8 +500,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -985,6 +572,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加依赖"><span class="nav-number">1.</span> <span class="nav-text">添加依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#准备数据源"><span class="nav-number">2.</span> <span class="nav-text">准备数据源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置数据适配器"><span class="nav-number">3.</span> <span class="nav-text">设置数据适配器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给recyclerView设置适配器"><span class="nav-number">4.</span> <span class="nav-text">给recyclerView设置适配器</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1099,6 +702,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 

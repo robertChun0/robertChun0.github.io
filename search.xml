@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[RecyclerView]]></title>
+      <url>%2F2017%2F04%2F05%2FRecyclerView%2F</url>
+      <content type="text"><![CDATA[添加依赖compile &#39;com.android.support:recyclerview-vxxxxx 准备数据源List&lt;Object&gt; datas 设置数据适配器 创建一个类继承RecyclerView.Adapter&lt;VH&gt; 构造函数中获取数据源 一个内部类继承RecyclerView.ViewHolder 构造函数获取传来的view中的组件 onCreateViewHolder方法中设置一个带布局的View并作为新的holder返回 12View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item,null);return new myHolder(view); onBindViewHolder方法中设置holder中的组件内容 1holder.textView.setText(mdata.get(position)); getItemCount方法返回数据源的大小 1return data.size(); 给recyclerView设置适配器1recyclerView.setAdapter(new myAdapter(datas));]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[JSON]]></title>
       <url>%2F2017%2F04%2F05%2FJSON%2F</url>
       <content type="text"><![CDATA[获取JSON数据(如OkHttp)1String jsonData = response.body().string; 使用JSONObject解析JSON1234567JSONArray jsonArray = new JSONArray(jsonData); for(int i = 0;i &lt; jsonArray.Length();i++)&#123; JSONObject jsonObject = jsonArray.getJSONObject(i); String xx = jsonObject.getString(“xx”); String yy = jsonObject.getString(“yy”);&#125; 使用Google官方出品的Gson库来解析12345678910111213//创建一个Person类Gson gson = new Gson();//一段JSON数据Person person = gson.fromJson(jsonData,Person.class);//一段JSON数组,则需要借助TypeToken将期望解析成的数据类型传入到fromJson()中List&lt;Person&gt; personList = gson.fromJson(jsonData,new TypeToken&lt;List&lt;Person&gt;&gt;()&#123;&#125;.getType());for(Person person:personList)&#123; String xx = person.getXx(); String yy = person.getYy(); ... &#125;]]></content>
