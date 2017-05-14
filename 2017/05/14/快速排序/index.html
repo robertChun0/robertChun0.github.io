@@ -85,17 +85,17 @@
 
 
 
-<meta name="description" content="快速排序算法123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960#include &amp;lt;stdio.h&amp;gt;int a[101],n;void quickSort(int left,int right)&amp;#123;	int i">
+<meta name="description" content="快速排序算法123456789101112#include &amp;lt;stdio.h&amp;gt;int a[101],n;void quickSort(int left,int right)&amp;#123;	int i,j,t,temp;	if(left&amp;gt;right)	return;		temp=a[left];//temp为基准数;	i=left;	j=right;">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="快速排序">
 <meta property="og:url" content="https://robertchun0.github.io/2017/05/14/快速排序/index.html">
 <meta property="og:site_name" content="robertChun">
-<meta property="og:description" content="快速排序算法123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960#include &amp;lt;stdio.h&amp;gt;int a[101],n;void quickSort(int left,int right)&amp;#123;	int i">
-<meta property="og:updated_time" content="2017-05-14T06:31:44.000Z">
+<meta property="og:description" content="快速排序算法123456789101112#include &amp;lt;stdio.h&amp;gt;int a[101],n;void quickSort(int left,int right)&amp;#123;	int i,j,t,temp;	if(left&amp;gt;right)	return;		temp=a[left];//temp为基准数;	i=left;	j=right;">
+<meta property="og:updated_time" content="2017-05-14T06:46:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快速排序">
-<meta name="twitter:description" content="快速排序算法123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960#include &amp;lt;stdio.h&amp;gt;int a[101],n;void quickSort(int left,int right)&amp;#123;	int i">
+<meta name="twitter:description" content="快速排序算法123456789101112#include &amp;lt;stdio.h&amp;gt;int a[101],n;void quickSort(int left,int right)&amp;#123;	int i,j,t,temp;	if(left&amp;gt;right)	return;		temp=a[left];//temp为基准数;	i=left;	j=right;">
 
 
 
@@ -385,7 +385,57 @@
       
 
       
-        <h3 id="快速排序算法"><a href="#快速排序算法" class="headerlink" title="快速排序算法"></a>快速排序算法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">int a[101],n;</div><div class="line"></div><div class="line">void quickSort(int left,int right)&#123;</div><div class="line">	int i,j,t,temp;</div><div class="line">	if(left&gt;right)</div><div class="line">	return;</div><div class="line">	</div><div class="line">	temp=a[left];//temp为基准数;</div><div class="line">	i=left;</div><div class="line">	j=right;</div><div class="line">	</div><div class="line">	while(i!=j)&#123;</div><div class="line">		//先从右边往左找比基准数要小的数</div><div class="line">		while( a[j]&gt;=temp &amp;&amp; i&lt;j )</div><div class="line">		j--;</div><div class="line">	</div><div class="line">		//再从左边往右找比基准数要大的数</div><div class="line">		while( a[i]&lt;=temp &amp;&amp; i&lt;j )</div><div class="line">		i++;</div><div class="line">		</div><div class="line">		//当i与j还未相遇,则交换a[i]跟a[j]</div><div class="line">		if(i&lt;j)&#123;</div><div class="line">		t=a[i];</div><div class="line">		a[i]=a[j];</div><div class="line">		a[j]=t;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	&lt;!-- more --&gt;</div><div class="line">	//当i=j 则将基准数归位</div><div class="line">	a[left]=a[i];</div><div class="line">	a[i]=temp;  </div><div class="line">	</div><div class="line">	//递归处理基准数归位后的左边部分	</div><div class="line">	quickSort(left,i-1);</div><div class="line">	//递归处理基准数归位后的右边部分</div><div class="line">	quickSort(i+1,right);</div><div class="line">	return;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">int main()&#123;</div><div class="line">		int i,j;</div><div class="line">		scanf(&quot;%d&quot;,&amp;n);</div><div class="line">		</div><div class="line">		for(i=1;i&lt;=n;i++)&#123;</div><div class="line">			scanf(&quot;%d&quot;,&amp;a[i]);</div><div class="line">		&#125;</div><div class="line">			</div><div class="line">		quickSort(1,n);</div><div class="line">		</div><div class="line">		for(i=1;i&lt;=n;i++)&#123;</div><div class="line">			printf(&quot;%d&quot;,a[i]);</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		return 0;	</div><div class="line">			</div><div class="line">	</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h3 id="快速排序算法"><a href="#快速排序算法" class="headerlink" title="快速排序算法"></a>快速排序算法</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="keyword">int</span> a[<span class="number">101</span>],n;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> i,j,t,temp;</div><div class="line">	<span class="keyword">if</span>(left&gt;right)</div><div class="line">	<span class="keyword">return</span>;</div><div class="line">	</div><div class="line">	temp=a[left];<span class="comment">//temp为基准数;</span></div><div class="line">	i=left;</div><div class="line">	j=right;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<pre><code class="C">    <span class="keyword">while</span>(i!=j){
+        <span class="comment">//先从右边往左找比基准数要小的数</span>
+        <span class="keyword">while</span>( a[j]&gt;=temp &amp;&amp; i&lt;j )
+        j--;
+
+        <span class="comment">//再从左边往右找比基准数要大的数</span>
+        <span class="keyword">while</span>( a[i]&lt;=temp &amp;&amp; i&lt;j )
+        i++;
+
+        <span class="comment">//当i与j还未相遇,则交换a[i]跟a[j]</span>
+        <span class="keyword">if</span>(i&lt;j){
+        t=a[i];
+        a[i]=a[j];
+        a[j]=t;
+        }
+    }  
+    <span class="comment">//当i=j 则将基准数归位</span>
+    a[left]=a[i];
+    a[i]=temp;  
+
+    <span class="comment">//递归处理基准数归位后的左边部分    </span>
+    quickSort(left,i<span class="number">-1</span>);
+    <span class="comment">//递归处理基准数归位后的右边部分</span>
+    quickSort(i+<span class="number">1</span>,right);
+    <span class="keyword">return</span>;
+}
+
+
+<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>{
+        <span class="keyword">int</span> i,j;
+        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);
+
+        <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++){
+            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);
+        }
+
+        quickSort(<span class="number">1</span>,n);
+
+        <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++){
+            <span class="built_in">printf</span>(<span class="string">"%d"</span>,a[i]);
+        }
+
+        <span class="keyword">return</span> <span class="number">0</span>;    
+
+
+
+}
+</code></pre>
+
       
     </div>
 
